@@ -207,9 +207,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <a-assets>
+      <!-- <a-assets>
         <a-asset-item id="model4" src="./models/ELE4.glb"></a-asset-item>
-      </a-assets>
+      </a-assets> -->
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -228,9 +228,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <a-assets>
+      <!-- <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets>
+      </a-assets> -->
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -249,9 +249,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <a-assets>
+      <!-- <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets>
+      </a-assets> -->
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -270,9 +270,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <a-assets>
+      <!-- <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets>
+      </a-assets> -->
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -291,9 +291,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <a-assets>
+      <!-- <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets>
+      </a-assets> -->
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -312,9 +312,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <a-assets>
+      <!-- <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets>
+      </a-assets> -->
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -322,6 +322,29 @@
         <a-entity gltf-model="#model5" position="0 0 0"></a-entity>
       </a-entity>
     </a-scene>
+
+    <!--Scene for the 10th .mind file-->
+    <a-scene
+      id="scene10"
+      mindar-image="imageTargetSrc: ./targets10.mind; autoStart: true; showStats: false;"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      embedded
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true"
+    >
+      <!-- <a-assets>
+        <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
+      </a-assets> -->
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0" id="target10">
+        <a-entity gltf-model="#model5" position="0 0 0"></a-entity>
+      </a-entity>
+    </a-scene>
+
+
     
 
     <script>
@@ -336,6 +359,7 @@
         const scene7 = document.getElementById("scene7");
         const scene8 = document.getElementById("scene8");
         const scene9 = document.getElementById("scene9");
+        const scene10 = document.getElementById("scene10");
 
         // Show the first scene initially
         scene1.classList.add("active");
@@ -439,6 +463,17 @@
           console.log("Target 9 lost!");
         });
 
+        // Target 10 (Scene 10) event listeners
+        const target10 = document.getElementById("target10");
+        target10.addEventListener("targetFound", () => {
+          console.log("Target 10 found! Navigating to yet another page...");
+          window.location.href = "model10.html"; // Navigate to the tenth page
+        });
+
+        target10.addEventListener("targetLost", () => {
+          console.log("Target 10 lost!");
+        });
+
         // Logic to switch between scenes dynamically
         const switchToScene = (sceneToShow) => {
           [
@@ -451,6 +486,7 @@
             scene7,
             scene8,
             scene9,
+            scene10,
           ].forEach((scene) => scene.classList.remove("active"));
           sceneToShow.classList.add("active");
         };
