@@ -501,7 +501,24 @@
           console.log("Switching to Scene 3");
           switchToScene(scene3);
         }, 10000);
+
+        setTimeout(() => {
+          console.log("Switching to Scene 4");
+          switchToScene(scene4);
+        }, 15000);
+
+        setTimeout(() => {
+          console.log("Switching to Scene 5");
+          switchToScene(scene5);
+        }, 20000);
+
+        setTimeout(() => {
+          console.log("Switching to Scene 6");
+          switchToScene(scene6);
+        }, 25000);
       });
+
+
 
       document.getElementById("close-button").addEventListener("click", () => {
         document.getElementById("message-box").style.display = "none";
