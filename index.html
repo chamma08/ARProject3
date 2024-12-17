@@ -103,7 +103,7 @@
         padding: 10px 20px; /* Padding for size */
         margin: 5px; /* Spacing between buttons */
         border-radius: 25px; /* Rounded corners */
-        font-size: 10px; /* Text size */
+        font-size: 15px; /* Text size */
         cursor: pointer; /* Pointer cursor on hover */
         transition: all 0.3s ease; /* Smooth transition */
       }
@@ -360,7 +360,62 @@
       </a-entity>
     </a-scene>
 
+    
+
     <script>
+       // Messages and icons data
+       const messages = [
+        { text: "Scan the image to visualize it in AR.", icon: "icn.png" },
+        {
+          text: "Point your camera steadily at the marker.",
+          icon: "icon2.png",
+        },
+        {
+          text: "Ensure proper lighting for better detection.",
+          icon: "icon3.png",
+        },
+        {
+          text: "Explore the 3D model in augmented reality!",
+          icon: "icon4.png",
+        },
+      ];
+
+      let currentMessageIndex = 0;
+
+      const messageBox = document.getElementById("message-box");
+      const messageContent = document.getElementById("message-content");
+      const messageIcon = document.getElementById("message-icon");
+      const prevButton = document.getElementById("prev-button");
+      const nextButton = document.getElementById("next-button");
+
+      // Function to update the message
+      function updateMessage() {
+        const { text, icon } = messages[currentMessageIndex];
+        messageContent.textContent = text;
+        messageIcon.src = icon;
+
+        // Disable/Enable navigation buttons
+        prevButton.disabled = currentMessageIndex === 0;
+        nextButton.disabled = currentMessageIndex === messages.length - 1;
+      }
+
+      // Event listeners for navigation buttons
+      prevButton.addEventListener("click", () => {
+        if (currentMessageIndex > 0) {
+          currentMessageIndex--;
+          updateMessage();
+        }
+      });
+
+      nextButton.addEventListener("click", () => {
+        if (currentMessageIndex < messages.length - 1) {
+          currentMessageIndex++;
+          updateMessage();
+        }
+      });
+
+      // Initialize
+      updateMessage();
       document.addEventListener("DOMContentLoaded", () => {
         // Get references to all scenes
         const scene1 = document.getElementById("scene1");
