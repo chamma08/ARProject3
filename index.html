@@ -64,7 +64,7 @@
 
       #navigation-buttons {
         justify-content: space-between;
-        margin-top:400px;
+        margin-top: 350px;
       }
 
       #close-button:hover {
@@ -92,19 +92,39 @@
         #close-button {
           font-size: 18px; /* Slightly smaller close button */
         }
+      }
 
-        #message-icon {
-          width: 50px;
-          height: 50px;
-        }
+      .nav-button {
+        background-color: #ff7002; /* Green background */
+        color: white; /* White text */
+        border: none; /* No border */
+        padding: 10px 20px; /* Padding for size */
+        margin: 5px; /* Spacing between buttons */
+        border-radius: 25px; /* Rounded corners */
+        font-size: 10px; /* Text size */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: all 0.3s ease; /* Smooth transition */
+      }
+
+      /* Hover effect */
+      .nav-button:hover {
+        background-color: #ff5e00; /* Darker green on hover */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+      }
+
+      /* Disabled button style */
+      .nav-button:disabled {
+        background-color: #ddd; /* Light grey background */
+        color: #aaa; /* Grey text */
+        cursor: not-allowed; /* Not-allowed cursor */
+        box-shadow: none; /* Remove shadow */
       }
     </style>
   </head>
   <body>
     <div id="message-box">
-      <p id="heading">
-        Instructions
-      </p>
+      <img id="message-icon" src="icn.png" alt="" />
+      <p id="heading" style="text-align: center;">Instructions</p>
       <p id="message-content">
         Scan the image you want to visualize in AR. Once scanned, navigate to
         the corresponding model.
@@ -323,7 +343,6 @@
     </a-scene>
 
     <script>
-      // Messages and icons data
       const messages = [
         { text: "Scan the image to visualize it in AR.", icon: "icon1.png" },
         {
