@@ -44,6 +44,7 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         word-wrap: break-word; /* Ensure text wraps */
         margin-top: 20px;
+        border: #ff7002;
       }
 
       #message-content {
@@ -65,7 +66,7 @@
 
       #navigation-buttons {
         justify-content: space-between;
-        margin-top: 300px;
+        margin-top: 75px;
       }
 
       #close-button:hover {
@@ -126,8 +127,23 @@
     <div id="message-box">
       <button id="close-button">X</button>
       <img id="message-icon" src="icn.png" alt="" />
-      <p id="heading" style="text-align: center;">Instructions</p>
-      <p id="message-content">
+      <p
+        id="heading"
+        style="
+          text-align: center;
+          font-size: large;
+          font-weight: bolder;
+          font: 1em sans-serif;
+        "
+      >
+        Welcome to <a style="color: #ff5e00;">Title</a>
+      </p>
+      <img
+        src="e.jpg"
+        alt=""
+        style="width: 300px; height: 200px; border-radius: 100%; margin-top: 10px; justify-content: center;"
+      />
+      <p id="message-content" style="margin-top: 20px;">
         Scan the image you want to visualize in AR. Once scanned, navigate to
         the corresponding model.
       </p>
@@ -207,9 +223,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <!-- <a-assets>
+      <a-assets>
         <a-asset-item id="model4" src="./models/ELE4.glb"></a-asset-item>
-      </a-assets> -->
+      </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -228,9 +244,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <!-- <a-assets>
+      <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets> -->
+      </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -249,9 +265,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <!-- <a-assets>
+      <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets> -->
+      </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -270,9 +286,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <!-- <a-assets>
+      <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets> -->
+      </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -291,9 +307,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <!-- <a-assets>
+      <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets> -->
+      </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -312,9 +328,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <!-- <a-assets>
+      <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets> -->
+      </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -333,9 +349,9 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <!-- <a-assets>
+      <a-assets>
         <a-asset-item id="model5" src="./models/ELE5.glb"></a-asset-item>
-      </a-assets> -->
+      </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -343,9 +359,6 @@
         <a-entity gltf-model="#model5" position="0 0 0"></a-entity>
       </a-entity>
     </a-scene>
-
-
-    
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -517,8 +530,6 @@
           switchToScene(scene6);
         }, 25000);
       });
-
-
 
       document.getElementById("close-button").addEventListener("click", () => {
         document.getElementById("message-box").style.display = "none";
