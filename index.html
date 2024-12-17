@@ -36,7 +36,12 @@
         height: 500px;
         margin-left: 13px;
         width: 65%; /* Responsive width */
-        background: rgba(255, 255, 255, 0.54); /* Semi-transparent black background */
+        background: rgba(
+          255,
+          255,
+          255,
+          0.54
+        ); /* Semi-transparent black background */
         color: rgb(0, 0, 0);
         padding: 20px 20px 15px; /* Adjust padding to accommodate close button */
         border-radius: 10px;
@@ -137,14 +142,22 @@
           font: 1em sans-serif;
         "
       >
-        Welcome to <a style="color: #ff5e00;">Title</a>
+        Welcome to <a style="color: #ff5e00">Title</a>
       </p>
       <img
         src="e.jpg"
         alt=""
-        style="width: 300px; height: 200px; border-radius: 100%; margin-left: 35px; margin-top: 10px; justify-content: center; opacity: 0.5;"
+        style="
+          width: 300px;
+          height: 200px;
+          border-radius: 100%;
+          margin-left: 35px;
+          margin-top: 10px;
+          justify-content: center;
+          opacity: 0.5;
+        "
       />
-      <p id="message-content" style="margin-top: 20px;">
+      <p id="message-content" style="margin-top: 20px">
         Scan the image you want to visualize in AR. Once scanned, navigate to
         the corresponding model.
       </p>
@@ -361,15 +374,27 @@
       </a-entity>
     </a-scene>
 
-    
-
     <script>
-       // Messages and icons data
-       const messages = [
-        { text: "Scan the image to visualize it in AR.", icon: "icn.png" },
+      // Messages and icons data
+      const messages = [
+        { text: "Touch Next to Go further", icon: "icn.png", img: "s.jpg" },
         {
           text: "Point your camera steadily at the marker.",
-          icon: "icon2.png",
+          icon: "icn.png",
+          img: "s.jpg",
+        },
+        {
+          text: "Ensure proper lighting for better detection.",
+          icon: "icon3.png",
+        },
+        {
+          text: "Explore the 3D model in augmented reality!",
+          icon: "icon4.png",
+        },
+        {
+          text: "Point your camera steadily at the marker.",
+          icon: "icn.png",
+          img: "s.jpg",
         },
         {
           text: "Ensure proper lighting for better detection.",
