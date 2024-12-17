@@ -87,18 +87,24 @@
         #close-button {
           font-size: 18px; /* Slightly smaller close button */
         }
+
+        #messahe-icon {
+          width: 50px;
+          height: 50px;
+        }
       }
     </style>
   </head>
   <body>
     <div id="message-box">
-      <div id="message-content">
-        <button id="close-button">&times;</button>
-        <p>
-          Scan the image you want to visualize in AR. Once scanned,
-          Automatically navigate to the page contains with the model according
-          to the image.
-        </p>
+      <img id="message-icon" src="icn.png" alt="Instruction Icon" />
+      <p id="message-content">
+        Scan the image you want to visualize in AR. Once scanned, navigate to
+        the corresponding model.
+      </p>
+      <div id="navigation-buttons">
+        <button class="nav-button" id="prev-button" disabled>Previous</button>
+        <button class="nav-button" id="next-button">Next</button>
       </div>
     </div>
     <!-- Scene for the first .mind file -->
@@ -308,6 +314,62 @@
         <a-entity gltf-model="#model5" position="0 0 0"></a-entity>
       </a-entity>
     </a-scene>
+
+    <script>
+      // Messages and icons data
+      const messages = [
+        { text: "Scan the image to visualize it in AR.", icon: "icon1.png" },
+        {
+          text: "Point your camera steadily at the marker.",
+          icon: "icon2.png",
+        },
+        {
+          text: "Ensure proper lighting for better detection.",
+          icon: "icon3.png",
+        },
+        {
+          text: "Explore the 3D model in augmented reality!",
+          icon: "icon4.png",
+        },
+      ];
+
+      let currentMessageIndex = 0;
+
+      const messageBox = document.getElementById("message-box");
+      const messageContent = document.getElementById("message-content");
+      const messageIcon = document.getElementById("message-icon");
+      const prevButton = document.getElementById("prev-button");
+      const nextButton = document.getElementById("next-button");
+
+      // Function to update the message
+      function updateMessage() {
+        const { text, icon } = messages[currentMessageIndex];
+        messageContent.textContent = text;
+        messageIcon.src = icon;
+
+        // Disable/Enable navigation buttons
+        prevButton.disabled = currentMessageIndex === 0;
+        nextButton.disabled = currentMessageIndex === messages.length - 1;
+      }
+
+      // Event listeners for navigation buttons
+      prevButton.addEventListener("click", () => {
+        if (currentMessageIndex > 0) {
+          currentMessageIndex--;
+          updateMessage();
+        }
+      });
+
+      nextButton.addEventListener("click", () => {
+        if (currentMessageIndex < messages.length - 1) {
+          currentMessageIndex++;
+          updateMessage();
+        }
+      });
+
+      // Initialize
+      updateMessage();
+    </script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
