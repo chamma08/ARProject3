@@ -532,6 +532,7 @@
         const scene9 = document.getElementById("scene9");
         const scene10 = document.getElementById("scene10");
         const scene11 = document.getElementById("scene11");
+        const scene12 = document.getElementById("scene12");
 
         // Show the first scene initially
         scene1.classList.add("active");
@@ -657,6 +658,17 @@
           console.log("Target 11 lost!");
         });
 
+        // Target 12 (Scene 12) event listeners
+        const target12 = document.getElementById("target12");
+        target12.addEventListener("targetFound", () => {
+          console.log("Target 12 found! Navigating to yet another page...");
+          window.location.href = "model12.html"; // Navigate to the twelfth page
+        });
+
+        target12.addEventListener("targetLost", () => {
+          console.log("Target 12 lost!");
+        });
+
         // Logic to switch between scenes dynamically
         const switchToScene = (sceneToShow) => {
           [
@@ -671,6 +683,7 @@
             scene9,
             scene10,
             scene11,
+            scene12,
           ].forEach((scene) => scene.classList.remove("active"));
           sceneToShow.classList.add("active");
         };
@@ -710,6 +723,11 @@
           console.log("Switching to Scene 8");
           switchToScene(scene8);
         }, 35000);
+
+        setTimeout(() => {
+          console.log("Switching to Scene 9");
+          switchToScene(scene9);
+        }, 40000);
       });
 
       document.getElementById("close-button").addEventListener("click", () => {
